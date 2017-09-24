@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
->
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 <!-- Required meta tags -->
     
@@ -17,24 +17,18 @@
 <h:body>
 <h:form>
   <div class="form-group">
-    <label for="uname">Email address</label>
-    <h:inputText styleClass="form-control" id="uname" value="#{LoginClass.uname}">
+    <label for="uname">Username:</label>
+    <h:inputText styleClass="form-control" id="uname" value="#{LoginClass.uname}" a:placeholder="Please enter the Username.">
     </h:inputText>
-    
-    
-    
-    
      </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <h:inputSecret styleClass="form-control" id="password" value="#{LoginClass.password}"></h:inputSecret>
+    <label for="password">Password:</label>
+    <h:inputSecret styleClass="form-control" id="password" value="#{LoginClass.password}" a:placeholder="Please enter the Password."></h:inputSecret>
     </div>
   
-  <h:commandButton action="#{LoginClass.loginKar}" styleClass="btn btn-primary"></h:commandButton>
-  
+  <h:commandButton value="Login" action="#{LoginClass.Dologin}" styleClass="btn btn-primary"></h:commandButton>
+  <br/><br/>
+  Don't have an account! <h:commandLink value="Register" action="registration_one"  />
 </h:form>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </h:body>
 </html>

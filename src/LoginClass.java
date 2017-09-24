@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 public class LoginClass {
 	private String uname;
 	private String password;
+	
 	public String getUname() {
 		return uname;
 	}
@@ -16,14 +17,14 @@ public class LoginClass {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String loginKar(){
-		if(this.uname.equals("admin")){
-			if(this.password.equals("admin")){
+	public String Dologin(){
+		if(uname.equals("Admin")){
+			if(password.equals("Admin")){
 				return "login-success";
 			}
 		}
 		return "login-fail";
 	}
 	
-	
+	public void registration_one(){}
 }
