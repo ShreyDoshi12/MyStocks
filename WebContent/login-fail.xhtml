@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <head>
 
 <title>Login Fail</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
 </head>
 <body>
 <b>Sorry, either name or password is incorrect please try again</b>
+<h:outputLink value="login_one.xhtml" styleClass="btn btn-primary" style= "float:right;"> Login </h:outputLink>
 </body>
 </html>

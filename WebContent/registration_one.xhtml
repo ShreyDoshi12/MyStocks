@@ -1,71 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-<!-- Required meta tags -->
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-      <!-- Bootstrap CSS -->
-<title>Login</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+	<!-- Required meta tags -->
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+	<!-- Bootstrap CSS -->
+	<title>Login</title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
 
 </h:head>
 <h:body>
-<h:form>
-  <div class="form-group">
-    <label for="firstname">First Name:</label>
-    <h:inputText styleClass="form-control" id="firstname" value="#{RegistrationClass.firstname}" 
-    a:placeholder="Please enter the First Name." required="true">
-    </h:inputText>
-     </div>
-     
-     <div class="form-group">
-    <label for="lastname">Last Name:</label>
-    <h:inputText styleClass="form-control" id="lastname" value="#{RegistrationClass.lastname}" 
-    a:placeholder="Please enter the Last name." required="true">
-    </h:inputText>
-     </div>
-     
-     <div class="form-group">
-    <label for="address">Address:</label>
-    <h:inputText styleClass="form-control" id="address" value="#{RegistrationClass.address}" 
-    a:placeholder="Zip Code-12205." required="true">
-    </h:inputText>
-     </div>
-     
-     <div class="form-group">
-    <label for="phonenumber">Phone Number:</label>
-    <h:inputText styleClass="form-control" id="phonenumber" value="#{RegistrationClass.phonenumber}" 
-    a:placeholder="0000000000" required="true">
-    </h:inputText>
-     </div>
-     
-     <div class="form-group">
-    <label for="email">Email:</label>
-    <h:inputText styleClass="form-control" id="email" value="#{RegistrationClass.email}" 
-    a:placeholder="abc@xyz.com" required="true">
-    </h:inputText>
-     </div>
-     
-     <div class="form-group">
-    <label for="username">Username:</label>
-    <h:inputText styleClass="form-control" id="username" value="#{RegistrationClass.username}" 
-    a:placeholder="Please enter the Username." required="true">
-    </h:inputText>
-     </div>
-     
-     <div class="form-group">
-    <label for="password">Password:</label>
-    <h:inputText styleClass="form-control" id="password" value="#{RegistrationClass.password}" 
-    a:placeholder="Please enter the Password." required="true">
-    </h:inputText>
-     </div>
-     
-     <h:commandButton value="Register" action="registration-success" styleClass="btn btn-primary" ></h:commandButton>
-</h:form>
+	<h:form>
+		<div class="form-group">
+			<label for="firstname">First Name:</label>
+			<h:inputText styleClass="form-control" id="firstname"
+				value="#{userLog.firstname}"
+				a:placeholder="Please enter the First Name." required="true"
+				requiredMessage="FirstName field is required">
+				<f:validateRegex pattern="^[a-zA-Z]{1,10}$"></f:validateRegex>
+			</h:inputText>
+			<h:message for="firstname" style="color:red" />
+		</div>
+
+		<div class="form-group">
+			<label for="lastname">Last Name:</label>
+			<h:inputText styleClass="form-control" id="lastname"
+				value="#{userLog.lastname}"
+				a:placeholder="Please enter the Last name." required="true"
+				requiredMessage="LastName field is required">
+				<f:validateRegex pattern="^[a-zA-Z]{1,10}$"></f:validateRegex>
+			</h:inputText>
+			<h:message for="lastname" style="color:red" />
+		</div>
+
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<h:inputText styleClass="form-control" id="email"
+				value="#{userLog.email}" a:placeholder="abc@xyz.com"
+				required="true" requiredMessage="Email address field is required">
+				<!--     <f:validateRegex pattern="[\w\.-][a-zA-Z0-9_]@[\w\.-][a-zA-Z0-9]\.(com|net|‌​org|edu)"></f:validateRegex> -->
+			</h:inputText>
+			<h:message for="email" style="color:red" />
+		</div>
+
+		<div class="form-group">
+			<label for="phoneno">Phone Number:</label>
+			<h:inputText styleClass="form-control" id="phoneno"
+				value="#{userLog.username}" a:placeholder="0000000000"
+				required="true" requiredMessage="Phone Number field is required">
+				<f:validateRegex pattern="^[0-9]{10}$"></f:validateRegex>
+			</h:inputText>
+			<h:message for="phoneno" style="color:red" />
+		</div>
+
+		<div class="form-group">
+			<label for="username">Username:</label>
+			<h:inputText styleClass="form-control" id="username"
+				value="#{userLog.username}"
+				a:placeholder="Please enter the Username." required="true"
+				requiredMessage="UserName field is required">
+				<f:validateRegex pattern="^[a-zA-Z]{1,10}$"></f:validateRegex>
+			</h:inputText>
+			<h:message for="username" style="color:red" />
+		</div>
+
+		<div class="form-group">
+			<label for="password">Password:</label>
+			<h:inputText styleClass="form-control" id="password"
+				value="#{userLog.password}"
+				a:placeholder="Please enter the Password." required="true"
+				requiredMessage="Password field is required">
+				<!--     <f:validateRegex pattern="((?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[@#$%]).{6,20})"></f:validateRegex> -->
+			</h:inputText>
+			<h:message for="password" style="color:red" />
+		</div>
+
+		<h:commandButton value="Register"
+			 action="#{userLog.register}" styleClass="btn btn-primary"></h:commandButton>
+		<h:outputLink value="Register"  ></h:outputLink>
+
+	</h:form>
 </h:body>
 </html>
