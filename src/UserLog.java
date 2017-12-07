@@ -13,15 +13,12 @@ import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 @ManagedBean(name = "userLog")
 @SessionScoped
 public class UserLog {
-		public String firstname;
+	public String firstname;
 	public String lastname;
 	public String email;
 	public String password;
 	public String username;
 	public String phoneno;
-	
-	
-
 
 	public String getFirstname() {
 		return firstname;
@@ -73,25 +70,26 @@ public class UserLog {
 
 	public String register() {
 		try {
+
+			String hostName = "localhost";
+			String portNumber = "3306";
+			String databaseName = "icsi518_server";
+			String userName = "root";
+			String password = "shrey12";
+
 			// HttpSession hs= Util.getSession();
 			// Setup the DataSource object
-			String myurl = "jdbc:mysql://localhost:3306/icsi518_server";
-	//		System.out.println(jdbc:mysql://localhost:3306/userDb);
+			String myurl = "jdbc:mysql://" + hostName + ":"+ portNumber + "/"+ databaseName;
+			// System.out.println(jdbc:mysql://localhost:3306/userDb);
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con1 = DriverManager.getConnection(myurl, "root", "shrey12");
-
-			// ds.setServerName(System.getenv("ICSI518_SERVER").toString());
-			// ds.setPortNumber(3306);
-			// ds.setDatabaseName(System.getenv("ICSI518_DB").toString());
-			// ds.setUser(System.getenv("ICSI518_USER").toString());
-			// ds.setPassword(System.getenv("ICSI518_PASSWORD").toString());
+			Connection con = DriverManager.getConnection(myurl, userName, password);
 
 			// Get a connection object
 
 			// Get a prepared SQL statement
 
 			String sql = "INSERT INTO userDb(firstnameuserDb, lastnameuserDb,emailuserDb,passuserDb, usernameuserDb, phonenouserDb) VALUES(?,?,?,?,?,?)";
-			PreparedStatement st = con1.prepareStatement(sql);
+			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, this.firstname);
 			st.setString(2, this.lastname);
 			st.setString(3, this.email);
@@ -102,7 +100,7 @@ public class UserLog {
 			// Execute the statement
 			st.execute();
 			System.out.println("Registration Successfully");
-			con1.close();
+			con.close();
 			// Iterate through results
 			// if (rs.next()) {
 			// System.out.println("First Name is: " +
