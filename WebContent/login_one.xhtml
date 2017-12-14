@@ -16,11 +16,11 @@
 
 </h:head>
 <h:body>
-	<h:form>
+	<h:form id="login">
 		<div class="form-group">
 			<label for="uname">Username:</label>
 			<h:inputText styleClass="form-control" id="uname"
-				value="#{LoginClass.uname}"
+				value="#{LoginClass.username}"
 				a:placeholder="Please enter the Username." required="true"
 				requiredMessage="Username field is required">
 			</h:inputText>
@@ -41,7 +41,9 @@
 		<br />
 		<br />
 		
-	Don't have an account! <h:outputLink value="registration_one.xhtml"> Register </h:outputLink>
+	Don't have an account! 
+	<br />
+	<h:outputLink value="faces/registration_one.xhtml"> Register </h:outputLink>
 
 	</h:form>
 </h:body>

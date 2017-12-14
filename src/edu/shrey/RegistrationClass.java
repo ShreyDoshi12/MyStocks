@@ -1,15 +1,21 @@
+package edu.shrey;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
+/**
+ * @author shrey
+ *
+ */
 @ManagedBean(name = "RegistrationClass")
 public class RegistrationClass {
 
 	private String firstname;
 	private String lastname;
-	private String phonenumber;
+	private String phoneno;
 	private String email;
-	private String address;
 	private String username;
 	private String password;
+	private String role;
 
 	public String getFirstname() {
 		return firstname;
@@ -27,12 +33,12 @@ public class RegistrationClass {
 		this.lastname = lastname;
 	}
 
-	public String getPhonenumber() {
-		return phonenumber;
+	public String getphoneno() {
+		return phoneno;
 	}
 
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setphoneno(String phoneno) {
+		this.phoneno = phoneno;
 	}
 
 	public String getEmail() {
@@ -41,14 +47,6 @@ public class RegistrationClass {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getUsername() {
@@ -67,4 +65,16 @@ public class RegistrationClass {
 		this.password = password;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String UserLog(){
+		UserLog.registration(firstname, lastname, phoneno, email, username, password, role);
+		return "registration-success";
+	}
 }
