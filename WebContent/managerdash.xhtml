@@ -14,29 +14,29 @@
         <link rel="stylesheet" href="css/style.css" ></link>
 </head>
 <body>
-        <h:form>
+      <h:form>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-12" style="width:100%;text-align:right">
                         <span style="float:left;">
                             <h:panelGroup rendered="#{LoginClass.username}">
-                               
+                                
                             </h:panelGroup>
                         </span>
-                        <span style="float:right;"><h:link value="Logout" outcome="login_one.xhtml" style="text-align: right;"/></span>
+                        <span style="float:right;"><h:commandButton value="Logout" action="login_one.xhtml" style="text-align: right;"/></span>
                     </div>
                 </div>
             </h:form>
-
 	<br />
 	<br />
-	 <b>Welcome #{LoginClass.username}</b>
+	<b>Welcome, #{LoginClass.username}</b>
 	<div class="well">
+
 		<legend>Search Data</legend>
 
 		<div class="row">
 
 			<h:form>
-				<label for="sel1"> Stock: </label>
+				<label for="sel1">Stock: </label>
 				<h:selectOneMenu id="symbol" value="#{stockApiBean.selectedSymbol}">
 					<f:selectItems value="#{stockApiBean.availableSymbols}" />
 				</h:selectOneMenu>
@@ -51,10 +51,13 @@
 					action="#{stockApiBean.timeseries}" styleClass="btn btn-success" />
 				<br />
 				<br />
-				<h:commandButton value="ViewProfile" action="viewuserprofile.xhtml"
+				<h:commandButton value="ApproveRequest"
+					action="#{RegistrationClass.ManageManager}"
 					styleClass="btn btn-primary"></h:commandButton>
-					<h:commandButton value="ManagerProfile" action="RegistrationClass.viewm"
-					styleClass="btn btn-primary"></h:commandButton>
+				<br />
+				<br />
+				<h:commandButton value="ViewProfile"
+					action="viewmanagerprofile.xhtml" styleClass="btn btn-primary"></h:commandButton>
 			</h:form>
 		</div>
 

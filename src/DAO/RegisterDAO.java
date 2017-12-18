@@ -1,4 +1,4 @@
-package edu.shrey;
+package DAO;
 
 import java.sql.*;
 
@@ -12,26 +12,15 @@ import com.mysql.jdbc.Driver;
 import com.sun.net.httpserver.Authenticator.Failure;
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
-@ManagedBean(name = "userLog")
-@SessionScoped
-public class UserLog {
+import dataconnect.DataConnect;
+
+public class RegisterDAO {
 
 	public static boolean registration(String firstname, String lastname, String phoneno, String email, String username,
-			String password, String role) {
+			String password, String role,String fees) {
 		try {
-
-			String hostName = "localhost";
-			String portNumber = "3306";
-			String databaseName = "icsi518_server";
-			String userName = "root";
-			String pwd = "shrey12";
-
-			String myurl = "jdbc:mysql://" + hostName + ":" + portNumber + "/" + databaseName;
-
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection(myurl, userName, pwd);
-
-			String sql = "INSERT INTO userdb(firstname, lastname, email, password, username, phoneno, role) VALUES(?,?,?,?,?,?,?)";
+			Connection con = DataConnect.getConnection();
+			String sql = "INSERT INTO userdb(firstname, lastname, email, password, username, phoneno, role,fees) VALUES(?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, firstname);
 			st.setString(2, lastname);
@@ -40,6 +29,7 @@ public class UserLog {
 			st.setString(5, username);
 			st.setString(6, phoneno);
 			st.setString(7, role);
+			st.setString(8, fees);
 			st.execute();
 			System.out.println("Registration Successfully");
 			con.close();

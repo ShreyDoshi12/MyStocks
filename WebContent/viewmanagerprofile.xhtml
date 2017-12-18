@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<!-- Required meta tags -->
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+	<!-- Bootstrap CSS -->
+	<title>Login</title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+
+</h:head>
+<h:body>
+<h:form>
+		<div class="form-group">
+			<label for="firstname">First Name: </label>
+			<h:outputText
+				value="#{LoginClass.firstname}">
+			</h:outputText>
+			
+		</div>
+		<div class="form-group">
+			<label for="lastname">Last Name: </label>
+			<h:outputText
+				value="#{LoginClass.lastname}">
+			</h:outputText>
+			
+		</div>
+		<div class="form-group">
+			<label for="email">Email: </label>
+			<h:outputText
+				value="#{LoginClass.email}">
+			</h:outputText>
+			
+		</div>
+		<div class="form-group">
+			<label for="username">User Name: </label>
+			<h:outputText
+				value="#{LoginClass.username}">
+			</h:outputText>
+			
+		</div>
+		<div class="form-group">
+			<label for="password">Password: </label>
+			<h:outputText
+				value="#{LoginClass.password}">
+			</h:outputText>
+			
+		</div>
+		<div class="form-group">
+			<label for="phoneno">Phone number: </label>
+			<h:outputText
+				value="#{LoginClass.phoneno}">
+			</h:outputText>
+			
+		</div>
+		<h:commandButton value="Edit" action="editmanagerprofile.xhtml" styleClass="btn btn-primary"></h:commandButton>
+</h:form>
+</h:body>
+</html>

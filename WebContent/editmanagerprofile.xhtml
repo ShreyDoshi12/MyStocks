@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<h:html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
@@ -13,11 +13,14 @@
 	<title>Login</title>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
-
 </h:head>
 <h:body>
-	<h:form>
-		<div class="form-group">
+<h:form>
+<h:outputLink value="Logout" action="login-one.xhtml" styleClass="btn btn-primary" style= "float:right;"> Login </h:outputLink>
+<br/><br/>
+<b></b>
+
+<div class="form-group">
 			<label for="firstname">First Name:</label>
 			<h:inputText styleClass="form-control" id="firstname"
 				value="#{RegistrationClass.firstname}"
@@ -27,7 +30,6 @@
 			</h:inputText>
 			<h:message for="firstname" style="color:red" />
 		</div>
-
 		<div class="form-group">
 			<label for="lastname">Last Name:</label>
 			<h:inputText styleClass="form-control" id="lastname"
@@ -38,7 +40,6 @@
 			</h:inputText>
 			<h:message for="lastname" style="color:red" />
 		</div>
-
 		<div class="form-group">
 			<label for="email">Email:</label>
 			<h:inputText styleClass="form-control" id="email"
@@ -48,17 +49,6 @@
 			</h:inputText>
 			<h:message for="email" style="color:red" />
 		</div>
-
-		<div class="form-group">
-			<label for="phoneno">Phone Number:</label>
-			<h:inputText styleClass="form-control" id="phoneno"
-				value="#{RegistrationClass.phoneno}" a:placeholder="0000000000"
-				required="true" requiredMessage="Phone Number field is required">
-				<f:validateRegex pattern="^[0-9]{10}$"></f:validateRegex>
-			</h:inputText>
-			<h:message for="phoneno" style="color:red" />
-		</div>
-
 		<div class="form-group">
 			<label for="username">Username:</label>
 			<h:inputText styleClass="form-control" id="username"
@@ -69,7 +59,6 @@
 			</h:inputText>
 			<h:message for="username" style="color:red" />
 		</div>
-
 		<div class="form-group">
 			<label for="password">Password:</label>
 			<h:inputSecret styleClass="form-control" id="password"
@@ -78,28 +67,17 @@
 				requiredMessage="Password field is required" />
 			<h:message for="password" style="color:red" />
 		</div>
-		
 		<div class="form-group">
-			<label for="role">Role:</label>
-			<h:inputText styleClass="form-control" id="role"
-				value="#{RegistrationClass.role}" 
-				a:placeholder="User or Manager" required="true"
-				requiredMessage="Enter your role" />
-			<h:message for="role" style="color:red" />
+			<label for="phoneno">Phone Number:</label>
+			<h:inputText styleClass="form-control" id="phoneno"
+				value="#{RegistrationClass.phoneno}" a:placeholder="0000000000"
+				required="true" requiredMessage="Phone Number field is required">
+				<f:validateRegex pattern="^[0-9]{10}$"></f:validateRegex>
+			</h:inputText>
+			<h:message for="phoneno" style="color:red" />
 		</div>
-		
-		<div class="form-group">
-			<label for="role">Fees:</label>
-			<h:inputText styleClass="form-control" id="fees"
-				value="#{RegistrationClass.fees}" 
-				a:placeholder=" Manager fees" />
-			
-		</div>
-		
-		<h:commandButton value="Register" action="#{RegistrationClass.UserLog}"
-			styleClass="btn btn-primary"></h:commandButton>
-		<h:outputLink value="Register"></h:outputLink>
-
-	</h:form>
+		<br/>
+<h:commandButton value="Update" action="#{RegistrationClass.EditLog}" styleClass="btn btn-primary" style= "float:center;"> </h:commandButton>
+</h:form>		
 </h:body>
-</html>
+</h:html>

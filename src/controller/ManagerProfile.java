@@ -1,13 +1,16 @@
-package edu.shrey;
+package controller;
+
+import java.util.ArrayList;
+
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-/**
- * @author shrey
- *
- */
-@ManagedBean(name = "RegistrationClass")
-public class RegistrationClass {
+import DAO.ManagerProfileDAO;
+
+@ManagedBean(name = "managerprofile")
+@SessionScoped
+public class ManagerProfile {
 
 	private String firstname;
 	private String lastname;
@@ -15,8 +18,7 @@ public class RegistrationClass {
 	private String email;
 	private String username;
 	private String password;
-	private String role;
-
+	public String role = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("role");
 	public String getFirstname() {
 		return firstname;
 	}
@@ -33,11 +35,11 @@ public class RegistrationClass {
 		this.lastname = lastname;
 	}
 
-	public String getphoneno() {
+	public String getPhoneno() {
 		return phoneno;
 	}
 
-	public void setphoneno(String phoneno) {
+	public void setPhoneno(String phoneno) {
 		this.phoneno = phoneno;
 	}
 
@@ -64,17 +66,12 @@ public class RegistrationClass {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public ArrayList<ManagerProfile> viewmanagerprofile() {
+		ArrayList<ManagerProfile> abs = new ArrayList<ManagerProfile>();
+		System.out.println(abs);
+		return ManagerProfileDAO.getManagerProfile(role);
 
-	public String getRole() {
-		return role;
 	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public String UserLog(){
-		UserLog.registration(firstname, lastname, phoneno, email, username, password, role);
-		return "registration-success";
-	}
+	
 }

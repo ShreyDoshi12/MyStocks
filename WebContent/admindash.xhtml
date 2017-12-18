@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Login successful</title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLink value="login_one.xhtml" styleClass="btn btn-primary"
+			style="float:right;"> Logout </h:outputLink>
+		<br />
+		<br />
+		<b>Welcome admin, #{LoginClass.username}</b>
+		<br />
+		<br />
+		<h:dataTable value="#{ManagerProfile.viewmanagerprofile}" var="ad"
+			paginator="true" rows="4" style="width: 60px">
+
+			<f:facet name="header">Manager List</f:facet>
+			<h:column>
+				<f:facet name="header">Firstname</f:facet>
+				<h:outputText value="#{ad.firstname}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Lastname</f:facet>
+					
+				
+				<h:outputText value="#{ad.lastname}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Username</f:facet>
+					
+				
+				<h:outputText value="#{ad.username}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Status</f:facet>
+				<h:commandButton value="Status" action="#{ManageProfile.approve()}"
+					styleClass="btn btn-primary" />
+
+
+			</h:column>
+
+<!-- 			<h:outputLink value="#{ManageProfile.viewmanagerprofile}" -->
+<!-- 				styleClass="btn btn-primary" style="float:left;"> Manage Manager </h:outputLink> -->
+		</h:dataTable>
+	</h:form>
+</h:body>
+</h:html>
