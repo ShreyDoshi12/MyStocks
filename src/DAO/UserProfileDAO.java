@@ -34,9 +34,9 @@ public class UserProfileDAO {
 				rs.close();
 				con.close();
 			}
-			if(request){
+			if (request) {
 				return up;
-			}else{
+			} else {
 				return null;
 			}
 		} catch (Exception e) {
@@ -49,5 +49,3 @@ public class UserProfileDAO {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	}
 }
-
-

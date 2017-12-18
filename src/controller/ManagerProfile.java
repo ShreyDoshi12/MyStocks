@@ -19,6 +19,7 @@ public class ManagerProfile {
 	private String username;
 	private String password;
 	public String role = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("role");
+
 	public String getFirstname() {
 		return firstname;
 	}
@@ -66,12 +67,12 @@ public class ManagerProfile {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public ArrayList<ManagerProfile> viewmanagerprofile() {
 		ArrayList<ManagerProfile> abs = new ArrayList<ManagerProfile>();
 		System.out.println(abs);
 		return ManagerProfileDAO.getManagerProfile(role);
 
 	}
-	
+
 }

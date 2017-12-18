@@ -95,7 +95,7 @@ public class RegistrationClass {
 	}
 
 	public String UserLog() {
-		RegisterDAO.registration(firstname, lastname, phoneno, email, username, password, role,fees);
+		RegisterDAO.registration(firstname, lastname, phoneno, email, username, password, role, fees);
 		return "registration-success";
 	}
 
@@ -109,12 +109,14 @@ public class RegistrationClass {
 		//
 		// return "admindash";
 	}
+
 	public String EditLog() {
 		System.out.println("HEllo");
-		 EditProfileDAO.edit(firstname, lastname, phoneno, email, username, password);
-		 return "update-success";
+		EditProfileDAO.edit(firstname, lastname, phoneno, email, username, password);
+		return "update-success";
 
 	}
+
 	public ArrayList<RegistrationClass> viewm() {
 		return MProfileDAO.getRegistrationClass(role);
 	}

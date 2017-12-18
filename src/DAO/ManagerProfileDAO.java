@@ -18,10 +18,10 @@ public class ManagerProfileDAO {
 		// TODO Auto-generated method stub
 		try {
 			Connection con = DataConnect.getConnection();
-			 PreparedStatement ps = con.prepareStatement("SELECT firstname,email,phoneno,username,lastname from userdb where role=manager");
-				ps.setString(1, role);
-			
-			
+			PreparedStatement ps = con.prepareStatement(
+					"SELECT firstname,email,phoneno,username,lastname from userdb where role=manager");
+			ps.setString(1, role);
+
 			ArrayList<ManagerProfile> mp = new ArrayList<ManagerProfile>();
 			ResultSet rs = ps.executeQuery();
 			boolean request = false;
@@ -36,11 +36,11 @@ public class ManagerProfileDAO {
 				mp.add(gt);
 				request = true;
 			}
-				if(request){
+			if (request) {
 				rs.close();
 				con.close();
 				return mp;
-			}else{
+			} else {
 				return null;
 			}
 		} catch (Exception e) {

@@ -19,34 +19,36 @@ import dataconnect.DataConnect;
 @WebServlet("/purchase")
 public class Purchase extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    public Purchase() {
-        super();
-    }
+	public Purchase() {
+		super();
+	}
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
-        doGet(req, resp);
-    }
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// super.doPost(req, resp); //To change body of generated methods,
+		// choose Tools | Templates.
+		doGet(req, resp);
+	}
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            Connection con = DataConnect.getConnection();
-            Statement statement = con.createStatement();
-            String symbol = request.getParameter("symbol");
-            String price = request.getParameter("price");
-            String qty = request.getParameter("qty");
-            String amt = request.getParameter("amt");
-            statement.executeUpdate("insert into purchase (`ID`,`stock_symbol`,`qty`,`price`,`amt`)	VALUES "
-                    + "(1111,'" + symbol + "','" + qty + "','" + price + "','" + (amt) + "')");
-            statement.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        response.sendRedirect(request.getContextPath() + "/login-one.jsp");
-    }
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			Connection con = DataConnect.getConnection();
+			Statement statement = con.createStatement();
+			String symbol = request.getParameter("symbol");
+			String price = request.getParameter("price");
+			String qty = request.getParameter("qty");
+			String amt = request.getParameter("amt");
+			statement.executeUpdate("insert into purchase (`ID`,`stock_symbol`,`qty`,`price`,`amt`)	VALUES " + "(1111,'"
+					+ symbol + "','" + qty + "','" + price + "','" + (amt) + "')");
+			statement.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		response.sendRedirect(request.getContextPath() + "/login-one.jsp");
+	}
 }

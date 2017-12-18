@@ -17,10 +17,10 @@ public class MProfileDAO {
 		// TODO Auto-generated method stub
 		try {
 			Connection con = DataConnect.getConnection();
-			 PreparedStatement ps = con.prepareStatement("SELECT firstname,email,phoneno,username,lastname from userdb where role=manager");
-				ps.setString(1, role);
-			
-			
+			PreparedStatement ps = con.prepareStatement(
+					"SELECT firstname,email,phoneno,username,lastname from userdb where role=manager");
+			ps.setString(1, role);
+
 			ArrayList<RegistrationClass> rc = new ArrayList<RegistrationClass>();
 			ResultSet rs = ps.executeQuery();
 			boolean request = false;
@@ -35,11 +35,11 @@ public class MProfileDAO {
 				rc.add(gt);
 				request = true;
 			}
-				if(request){
+			if (request) {
 				rs.close();
 				con.close();
 				return rc;
-			}else{
+			} else {
 				return null;
 			}
 		} catch (Exception e) {
@@ -47,8 +47,8 @@ public class MProfileDAO {
 			return null;
 		}
 	}
-		public void logout() {
-			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+
+	public void logout() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	}
 }
-

@@ -17,7 +17,7 @@ import dataconnect.DataConnect;
 public class RegisterDAO {
 
 	public static boolean registration(String firstname, String lastname, String phoneno, String email, String username,
-			String password, String role,String fees) {
+			String password, String role, String fees) {
 		try {
 			Connection con = DataConnect.getConnection();
 			String sql = "INSERT INTO userdb(firstname, lastname, email, password, username, phoneno, role,fees) VALUES(?,?,?,?,?,?,?,?)";

@@ -38,7 +38,7 @@ public class LoginDAO {
 						rs.getString("phoneno"));
 				// System.out.println(rs.getString("username"));
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("ID", rs.getString("ID"));
-//				System.out.println("ID: " + rs.getString("ID"));
+				// System.out.println("ID: " + rs.getString("ID"));
 
 				con.close();
 				return true;

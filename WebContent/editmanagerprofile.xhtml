@@ -15,12 +15,14 @@
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
 </h:head>
 <h:body>
-<h:form>
-<h:outputLink value="Logout" action="login-one.xhtml" styleClass="btn btn-primary" style= "float:right;"> Login </h:outputLink>
-<br/><br/>
-<b></b>
+	<h:form>
+		<h:outputLink value="Logout" action="login-one.xhtml"
+			styleClass="btn btn-primary" style="float:right;"> Login </h:outputLink>
+		<br />
+		<br />
+		<b></b>
 
-<div class="form-group">
+		<div class="form-group">
 			<label for="firstname">First Name:</label>
 			<h:inputText styleClass="form-control" id="firstname"
 				value="#{RegistrationClass.firstname}"
@@ -43,8 +45,8 @@
 		<div class="form-group">
 			<label for="email">Email:</label>
 			<h:inputText styleClass="form-control" id="email"
-				value="#{RegistrationClass.email}" a:placeholder="abc@xyz.com" required="true"
-				requiredMessage="Email address field is required">
+				value="#{RegistrationClass.email}" a:placeholder="abc@xyz.com"
+				required="true" requiredMessage="Email address field is required">
 				<!--     <f:validateRegex pattern="[\w\.-][a-zA-Z0-9_]@[\w\.-][a-zA-Z0-9]\.(com|net|‌​org|edu)"></f:validateRegex> -->
 			</h:inputText>
 			<h:message for="email" style="color:red" />
@@ -76,8 +78,10 @@
 			</h:inputText>
 			<h:message for="phoneno" style="color:red" />
 		</div>
-		<br/>
-<h:commandButton value="Update" action="#{RegistrationClass.EditLog}" styleClass="btn btn-primary" style= "float:center;"> </h:commandButton>
-</h:form>		
+		<br />
+		<h:commandButton value="Update" action="#{RegistrationClass.EditLog}"
+			styleClass="btn btn-primary" style="float:center;">
+		</h:commandButton>
+	</h:form>
 </h:body>
 </h:html>

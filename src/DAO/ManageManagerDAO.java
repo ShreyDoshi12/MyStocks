@@ -13,28 +13,27 @@ import javax.faces.model.SelectItem;
 import dataconnect.DataConnect;
 
 public class ManageManagerDAO {
-	public static boolean manager(String username, String role){
-	
-	 try {
-		 Connection con = DataConnect.getConnection();
-         String sql = "INSERT INTO userdb(username, role) VALUES(?,?)";
+	public static boolean manager(String username, String role) {
+
+		try {
+			Connection con = DataConnect.getConnection();
+			String sql = "INSERT INTO userdb(username, role) VALUES(?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, username);
 			st.setString(2, role);
 			ResultSet rs = st.executeQuery(sql);
-			
-	
+
 			if (rs.next()) {
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("username",rs.getString("username"));
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("username",
+						rs.getString("username"));
 				con.close();
 				return true;
 			}
-	 }catch (Exception e){
-		 e.printStackTrace();
-		 return false;
-	 }
-	return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
 	}
 
-	
 }

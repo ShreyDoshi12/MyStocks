@@ -74,10 +74,6 @@ public class LoginClass {
 	public void setPhoneno(String phoneno) {
 		this.phoneno = phoneno;
 	}
-	
-	
-
-	
 
 	public String getID() {
 		return ID;
@@ -89,23 +85,24 @@ public class LoginClass {
 
 	public String dologin() {
 		boolean result = LoginDAO.login(username, password, role);
-		 this.ID =   (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("ID");
-		 this.firstname =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("firstname");
-		 this.lastname =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("lastname");
-		 this.username =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("username");
-		 this.password =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("password");
-		 this.email =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
-		 this.phoneno =  (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("phoneno");
-		
+		this.ID = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("ID");
+		this.firstname = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+				.get("firstname");
+		this.lastname = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("lastname");
+		this.username = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("username");
+		this.password = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("password");
+		this.email = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("email");
+		this.phoneno = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("phoneno");
+
 		if (result == true) {
-			if (this.getRole().equals ("admin")) {
-				
+			if (this.getRole().equals("admin")) {
+
 				return "admindash";
-			} else if (this.getRole().equals ("manager")) {
-				
+			} else if (this.getRole().equals("manager")) {
+
 				return "managerdash";
 			} else {
-				
+
 				return "userdash";
 			}
 		}
@@ -115,7 +112,8 @@ public class LoginClass {
 		// return "login-success?faces-redirect=true";
 		else {
 
-			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "Invalid Login!", "Please Try Again!"));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_WARN, "Invalid Login!", "Please Try Again!"));
 
 			return "login_one";
 		}
@@ -127,5 +125,4 @@ public class LoginClass {
 		FacesContext.getCurrentInstance().getExternalContext().redirect("login_one.xhtml");
 	}
 
-	
 }
